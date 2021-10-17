@@ -20,5 +20,6 @@ namespace QuestionSolutions.Main.Infrastructure.Repositories.Schemas.CORE
     }
 
     public ICategoryRepository Category => new CategoryRepository(_connection, _transaction,_schemaName, _commandTimeout);
+    
     }
 }

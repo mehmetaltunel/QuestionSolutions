@@ -22,9 +22,7 @@ namespace QuestionSolutions.SharedKernel.Utilities
                 param += $"@{property.Name}";
                 if (i != properties.Count - 1)
                     param += ",";
-                
-                i++;               
-
+                i++;
             }
             return new GenericParameterModel
             {

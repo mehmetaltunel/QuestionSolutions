@@ -1,12 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using Dapper;
 using QuestionSolutions.SharedKernel.Utilities;
-using QuestionSolutions.SharedKernel.Utilities.FileTypeValidation;
 
 namespace QuestionSolutions.SharedKernel.SeedWork
 {
@@ -33,13 +30,9 @@ namespace QuestionSolutions.SharedKernel.SeedWork
         
         protected RepositoryBase(IDbConnection dbConnection, IDbTransaction dbTransaction,string schemaName, int commandTimeout ) : base(dbConnection, dbTransaction,schemaName, commandTimeout)
         {
+            
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+        
         public async virtual Task<TId> InsertAsync(TEntity input)
         {
             var properties = GenericUtil<TEntity>.GetGenericProperties(input);
@@ -83,8 +76,5 @@ namespace QuestionSolutions.SharedKernel.SeedWork
                 transaction: DbTransaction, commandTimeout: CommandTimeout);
             return  response;
         }
-        
-
     }
-   
 }
