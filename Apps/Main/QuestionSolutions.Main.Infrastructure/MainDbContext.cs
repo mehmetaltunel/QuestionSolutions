@@ -1,6 +1,6 @@
 using QuestionSolutions.Main.Domain;
-using QuestionSolutions.Main.Domain.Shcemas.Main;
-using QuestionSolutions.Main.Infrastructure.Repositories;
+using QuestionSolutions.Main.Domain.Shcemas.CORE;
+using QuestionSolutions.Main.Infrastructure.Repositories.Schemas.CORE;
 using QuestionSolutions.SharedKernel.SeedWork.Contexes;
 
 namespace QuestionSolutions.Main.Infrastructure
@@ -11,6 +11,6 @@ namespace QuestionSolutions.Main.Infrastructure
         {
         }
 
-        public IMainSchema Main => new MainSchema(Connection, Transaction, CommandTimeout);
+        public ICORESchema CORE => new CORESchema(Connection, Transaction,"CORE", CommandTimeout);
     }
 }

@@ -1,6 +1,6 @@
-namespace QuestionSolutions.Main.Domain.Shcemas.Main.CategoryAggregates
+namespace QuestionSolutions.Main.Application.Queries.Category.GetAll
 {
-    public class Category
+    public class CategoryGetAllDto
     {
         public long Id { get; set; }
         public string Name { get; set; }

@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using AutoMapper;
+using QuestionSolutions.Main.Application.Queries.Category.GetAll;
 using QuestionSolutions.Main.Application.Queries.Category.GetById;
-using QuestionSolutions.Main.Domain.Shcemas.Main.CategoryAggregates;
+using QuestionSolutions.Main.Domain.Shcemas.CORE.CategoryAggregates;
 
 namespace QuestionSolutions.Main.Application.Mapper
 {
@@ -9,6 +11,7 @@ namespace QuestionSolutions.Main.Application.Mapper
         public MappingProfile()
         {
             CreateMap<Category,CategoryGetByIdDto>();
+            CreateMap<Category, CategoryGetAllDto>();
         }
     }
 }
