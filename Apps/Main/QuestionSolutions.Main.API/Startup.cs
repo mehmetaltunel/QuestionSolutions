@@ -67,7 +67,11 @@ namespace QuestionSolutions.Main.API
             #endregion
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo {Title = "QuestionSolutions.Main.API", Version = "v1"});
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
+            services.AddSwaggerGen(options =>
+            {
+                options.CustomSchemaIds(type => type.ToString());
             });
         }
 
@@ -77,10 +81,13 @@ namespace QuestionSolutions.Main.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "QuestionSolutions.Main.API v1"));
+ 
             }
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger");
+            });
             app.UseHttpsRedirection();
 
             app.UseRouting();

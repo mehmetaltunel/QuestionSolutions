@@ -15,6 +15,7 @@ namespace QuestionSolutions.SharedKernel.Utilities
             {
                 if (isInsert && property.Name == "Id")
                 {
+                    i++;
                     continue;
                 }
                 parameters.Add($"@{property.Name}", property.Value, property.DbType);
