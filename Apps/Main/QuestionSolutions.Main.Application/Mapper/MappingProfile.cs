@@ -12,6 +12,8 @@ namespace QuestionSolutions.Main.Application.Mapper
         {
             CreateMap<Category,CategoryGetByIdDto>();
             CreateMap<Category, CategoryGetAllDto>();
+            CreateMap<Commands.Category.Insert.Command, Category>();
+            CreateMap<Commands.Category.Update.Command, Category>();
         }
     }
 }

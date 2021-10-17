@@ -22,17 +22,13 @@ namespace QuestionSolutions.Main.Application.Commands.Category.Insert
 
         protected override async Task<Result> HandleAsync(Command request, CancellationToken cancellationToken)
         {
-            using (var unitOfWork = _unitOfWorkFactory.Create(true, false))
+            using (var unitOfWork = _unitOfWorkFactory.Create(true, true))
             {
-                var insert =
-                    await unitOfWork.Context.CORE.Category.InsertAsync(
-                        new Domain.Shcemas.CORE.CategoryAggregates.Category
-                        {
-                            Name = "Test2",
-                            ParentId = 1
-                        });
+                var insert = await unitOfWork.Context.CORE.Category.InsertAsync(_mapper.Map<Domain.Shcemas.CORE.CategoryAggregates.Category>(request));
+                unitOfWork.CommitTransaction();
+                unitOfWork.CloseConnection();
+                return  Result<long>.WithSuccess(insert);
             }
-            throw new System.NotImplementedException();
         }
     }
 }
